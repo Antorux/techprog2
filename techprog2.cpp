@@ -8,9 +8,18 @@ using namespace std;
 void DateInizilization(Date& obj)
 {
 	int year, month, day;
-	cout << "Введите год" << endl; cin >> year;
-	cout << "Введите месяц" << endl; cin >> month;
-	cout << "Введите день" << endl; cin >> day;
+	cout << "Введите год" << endl;
+	cin >> year; 
+	cout << "Введите месяц" << endl; 
+	cin >> month; while (month > 12 || month < 1) {
+		cout << "Введите корректную дату!" << endl << "Введите месяц" << endl;
+		cin >> month;
+	}
+	cout << "Введите день" << endl; cin >> day;  while (day > 31 || day < 1) {
+		cout << "Введите корректную дату!" << endl << "Введите день" << endl;
+		cin >> day;
+	}
+	system("cls");
 	obj.Inizilization(year, month, day);
 
 }
@@ -123,7 +132,7 @@ void FirstTask(Date* DateList)
 
 void AdditionAndSubtractionOperations(List& obj)
 {
-	int choice; int del; int add;
+	int choice; int del = 1; int add;
 
 	cout << "Какой операцией хотите воспользоваться? " << endl << "1 - Добавление элемента(перегрузка + )" << endl << "2 - Извлечение элемента(перегрузка -)" << endl;
 	cin >> choice;
@@ -137,10 +146,9 @@ void AdditionAndSubtractionOperations(List& obj)
 		break;
 	case 2: if (obj.IsEmptyCheck(obj))
 	{
-		cout << "Введите значение извлекаемого элемента" << endl;
-		cin >> del;
+		
+			obj - del;
 
-		obj - del;
 	}
 		  else cout << "Очередь пуста" << endl;
 

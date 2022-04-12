@@ -132,41 +132,13 @@ List& List::operator+(int num)
 
 List& List::operator-(int number)
 {
-	int counter = 0;
+	Node* temp = head;
+	cout << "Извлечен элемент:" << head->data << endl;
+	head = head->pNext;
+	delete temp;
 	size--;
-	if (this->head == nullptr) { return *this; }
-	else if (number == head->data)
-	{
-		Node* temp = this->head;
-		this->head = temp->pNext;
-		delete temp;
-		return *this;
-	}
-	Node* current = this->head;
-	while (current != nullptr)
-	{
-		if (number == current->pNext->data)
-		{
-			if (current->pNext->pNext == nullptr)
-			{
-				delete current->pNext;
-				current->pNext = nullptr;
-			}
-			else {
-				Node* temp = current->pNext->pNext;
-				delete current->pNext;
-				current->pNext = temp;
-			}
-		}
-		else if (counter <= size + 1)
-		{
-			cout << "Такой элемент не найден в очереди" << endl;
-			break;
-		}
-		current = current->pNext;
-		counter++;
 
-	}
+	
 	return *this;
 }
 

@@ -22,7 +22,7 @@ public:
 	Date& operator--();// префиксный декремент
 	Date& operator--(const int); // постфикнсый декремент
 	friend Date operator++(Date& obj, const int);// постфиксный инкремент
-
+	
 
 
 	void GetDate();
